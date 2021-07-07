@@ -100,8 +100,10 @@ const App = () => {
       </div>
       <div className="mt-10 pb-10 text-7xl md:text-9xl">
         {choices.map(choice => (
-          <button key={choice} onClick={() => handleClick(choice)}>{choicesEmoji[choice]}</button>)
-        )}
+          <button key={choice} onClick={() => handleClick(choice)} disabled={isLoading}>
+            {choicesEmoji[choice]}
+          </button>
+        ))}
       </div>
     </div>
   );

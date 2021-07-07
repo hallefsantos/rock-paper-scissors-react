@@ -3,7 +3,7 @@ const App = () => {
 
   const [userChoice, setUserChoice] = useState(null)
   const [computerChoice, setComputerChoice] = useState(null)
-  const [result, setResult] = useState(null)
+  const [result, setResult] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -11,17 +11,17 @@ const App = () => {
       case 'tesourapapel':
       case 'pedratesoura':
       case 'papelpedra':
-        setResult('YOU WIN')
+        setResult({label: 'You win', bgResult: 'bg-green-500'})
         break
       case 'papeltesoura':
       case 'tesourapedra':
       case 'pedrapapel':
-        setResult('YOU LOST')
+        setResult({label: 'You lose', bgResult: 'bg-red-500'})
         break
       case 'papelpapel':
       case 'pedrapedra':
       case 'tesouratesoura':
-        setResult("IT'S A DRAW")
+        setResult({label: 'Its a draw', bgResult: 'bg-yellow-500'})
         break
       default:
         break
@@ -54,19 +54,14 @@ const App = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-screen bg-gradient-to-r from-gray-100 to-gray-200">
-      {/* <div className="text-2xl">
-        <h1>User choice is: <span className={`${isLoading ? 'wiggle' : ''} inline-block`}>{choicesEmoji[userChoice]}</span></h1>
-        <h1>Computer choice is: {choicesEmoji[computerChoice]}</h1>
-      </div> */}
       {!isLoading && (
-        <div className={`absolute top-0 inset-x-0 py-3 md:py-5 text-center text-4xl md:text-5xl text-white font-semibold bg-green-500`}>
-          {result}
+        <div className={`absolute top-0 inset-x-0 py-3 md:py-5 text-center text-4xl md:text-5xl text-white font-semibold ${result.bgResult}`}>
+          {result.label}
         </div>
       )}
       <div class="flex-1 flex items-center text-6xl md:text-7xl">
         <div className="grid grid-cols-2 text-center gap-5">
           {isLoading ? (
-            
             <>
               <span className="wiggle">✊</span>
               <span className="wiggle wiggle-reverse">✊</span>

@@ -33,7 +33,7 @@ const App = () => {
       default:
         break
     }
-  }, [userChoice, computerChoice])
+  }, [userChoice, computerChoice, scoreboard])
 
   const choices = ['pedra', 'papel', 'tesoura']
 

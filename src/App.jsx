@@ -13,17 +13,17 @@ const App = () => {
       case 'pedratesoura':
       case 'papelpedra':
         setResult({label: 'You win', bgResult: 'bg-green-500'})
-        // setTimeout(() => {
-        //   setScoreboard({you: scoreboard.you++, ...scoreboard})
-        // }, 750);
+        setTimeout(() => {
+          setScoreboard(s => ({you: s.you++, cpu: s.cpu}))
+        }, 750);
         break
       case 'papeltesoura':
       case 'tesourapedra':
       case 'pedrapapel':
         setResult({label: 'You lose', bgResult: 'bg-red-500'})
-        // setTimeout(() => {
-        //   setScoreboard({cpu: scoreboard.cpu++, ...scoreboard})
-        // }, 750);
+        setTimeout(() => {
+          setScoreboard(s => ({cpu: s.cpu++, you: s.you}))
+        }, 750);
         break
       case 'papelpapel':
       case 'pedrapedra':
@@ -66,7 +66,7 @@ const App = () => {
           {result.label}
         </div>
       )}
-      <div class="flex-1 flex items-center text-6xl md:text-7xl">
+      <div className="flex-1 flex items-center text-6xl md:text-7xl">
         <div className="grid grid-cols-2 text-center gap-5">
           {isLoading ? (
             <>
@@ -82,12 +82,12 @@ const App = () => {
 
           {computerChoice && (
             <>
-              <div class="bg-green-500 text-3xl text-white rounded">YOU</div>
-              <div class="bg-red-500 text-3xl text-white rounded">CPU</div>
-              <div class="col-span-2 grid grid-cols-5">
-                <div class="col-span-2 bg-green-500 text-3xl text-white rounded-l">{scoreboard.you}</div>
-                <div class="col-span-1 bg-gray-800 text-3xl text-white">X</div>
-                <div class="col-span-2 bg-red-500 text-3xl text-white rounded-r">{scoreboard.cpu}</div>
+              <div className="bg-green-500 text-3xl text-white rounded">YOU</div>
+              <div className="bg-red-500 text-3xl text-white rounded">CPU</div>
+              <div className="col-span-2 grid grid-cols-5">
+                <div className="col-span-2 bg-green-500 text-3xl text-white rounded-l">{scoreboard.you}</div>
+                <div className="col-span-1 bg-gray-800 text-3xl text-white">X</div>
+                <div className="col-span-2 bg-red-500 text-3xl text-white rounded-r">{scoreboard.cpu}</div>
               </div>
             </>
           )}
@@ -99,7 +99,7 @@ const App = () => {
       </div>
       <div className="mt-10 pb-10 text-7xl md:text-9xl">
         {choices.map(choice => (
-          <button onClick={() => handleClick(choice)}>{choicesEmoji[choice]}</button>)
+          <button key={choice} onClick={() => handleClick(choice)}>{choicesEmoji[choice]}</button>)
         )}
       </div>
     </div>

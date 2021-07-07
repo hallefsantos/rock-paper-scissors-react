@@ -13,17 +13,17 @@ const App = () => {
       case 'pedratesoura':
       case 'papelpedra':
         setResult({label: 'You win', bgResult: 'bg-green-500'})
-        setTimeout(() => {
-          setScoreboard({you: scoreboard.you++, ...scoreboard})
-        }, 750);
+        // setTimeout(() => {
+        //   setScoreboard({you: scoreboard.you++, ...scoreboard})
+        // }, 750);
         break
       case 'papeltesoura':
       case 'tesourapedra':
       case 'pedrapapel':
         setResult({label: 'You lose', bgResult: 'bg-red-500'})
-        setTimeout(() => {
-          setScoreboard({cpu: scoreboard.cpu++, ...scoreboard})
-        }, 750);
+        // setTimeout(() => {
+        //   setScoreboard({cpu: scoreboard.cpu++, ...scoreboard})
+        // }, 750);
         break
       case 'papelpapel':
       case 'pedrapedra':
@@ -33,7 +33,7 @@ const App = () => {
       default:
         break
     }
-  }, [userChoice, computerChoice, scoreboard])
+  }, [userChoice, computerChoice])
 
   const choices = ['pedra', 'papel', 'tesoura']
 

@@ -5,7 +5,8 @@ const App = () => {
   const [computerChoice, setComputerChoice] = useState(null)
   const [result, setResult] = useState({})
   const [isLoading, setIsLoading] = useState(false)
-  const [scoreboard, setScoreboard] = useState({you: 0, cpu: 0})
+  const [userScore, setUserScore] = useState(0)
+  const [cpuScore, setCpuScore] = useState(0)
 
   useEffect(() => {
     switch(userChoice + computerChoice) {
@@ -14,7 +15,7 @@ const App = () => {
       case 'papelpedra':
         setResult({label: 'You win', bgResult: 'bg-green-500'})
         setTimeout(() => {
-          setScoreboard(s => ({you: s.you++, cpu: s.cpu}))
+          setUserScore(s => s+1)
         }, 750);
         break
       case 'papeltesoura':
@@ -22,7 +23,7 @@ const App = () => {
       case 'pedrapapel':
         setResult({label: 'You lose', bgResult: 'bg-red-500'})
         setTimeout(() => {
-          setScoreboard(s => ({you: s.you, cpu: s.cpu++}))
+          setCpuScore(s => s+1)
         }, 750);
         break
       case 'papelpapel':
@@ -85,9 +86,9 @@ const App = () => {
               <div className="bg-green-500 text-3xl text-white rounded">YOU</div>
               <div className="bg-red-500 text-3xl text-white rounded">CPU</div>
               <div className="col-span-2 grid grid-cols-5">
-                <div className="col-span-2 bg-green-500 text-3xl text-white rounded-l">{scoreboard.you}</div>
+                <div className="col-span-2 bg-green-500 text-3xl text-white rounded-l">{userScore}</div>
                 <div className="col-span-1 bg-gray-800 text-3xl text-white">X</div>
-                <div className="col-span-2 bg-red-500 text-3xl text-white rounded-r">{scoreboard.cpu}</div>
+                <div className="col-span-2 bg-red-500 text-3xl text-white rounded-r">{cpuScore}</div>
               </div>
             </>
           )}

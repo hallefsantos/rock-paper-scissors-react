@@ -5,6 +5,7 @@ const App = () => {
   const [computerChoice, setComputerChoice] = useState(null)
   const [result, setResult] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+  const [scoreboard, setScoreboard] = useState({you: 0, cpu: 0})
 
   useEffect(() => {
     switch(userChoice + computerChoice) {
@@ -12,11 +13,17 @@ const App = () => {
       case 'pedratesoura':
       case 'papelpedra':
         setResult({label: 'You win', bgResult: 'bg-green-500'})
+        setTimeout(() => {
+          setScoreboard({you: scoreboard.you++, ...scoreboard})
+        }, 750);
         break
       case 'papeltesoura':
       case 'tesourapedra':
       case 'pedrapapel':
         setResult({label: 'You lose', bgResult: 'bg-red-500'})
+        setTimeout(() => {
+          setScoreboard({cpu: scoreboard.cpu++, ...scoreboard})
+        }, 750);
         break
       case 'papelpapel':
       case 'pedrapedra':
@@ -77,8 +84,13 @@ const App = () => {
             <>
               <div class="bg-green-500 text-3xl text-white rounded">YOU</div>
               <div class="bg-red-500 text-3xl text-white rounded">CPU</div>
+              <div class="bg-green-500 text-3xl text-white rounded">{scoreboard.you}</div>
+              <div class="bg-red-500 text-3xl text-white rounded">{scoreboard.cpu}</div>
             </>
           )}
+
+
+
         </div>
 
       </div>

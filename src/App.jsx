@@ -22,7 +22,7 @@ const App = () => {
       case 'pedrapapel':
         setResult({label: 'You lose', bgResult: 'bg-red-500'})
         setTimeout(() => {
-          setScoreboard(s => ({cpu: s.cpu++, you: s.you}))
+          setScoreboard(s => ({you: s.you, cpu: s.cpu++}))
         }, 750);
         break
       case 'papelpapel':

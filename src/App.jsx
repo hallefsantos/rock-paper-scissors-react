@@ -84,8 +84,11 @@ const App = () => {
             <>
               <div class="bg-green-500 text-3xl text-white rounded">YOU</div>
               <div class="bg-red-500 text-3xl text-white rounded">CPU</div>
-              <div class="bg-green-500 text-3xl text-white rounded">{scoreboard.you}</div>
-              <div class="bg-red-500 text-3xl text-white rounded">{scoreboard.cpu}</div>
+              <div class="col-span-2 grid grid-cols-5">
+                <div class="col-span-2 bg-green-500 text-3xl text-white rounded-l">{scoreboard.you}</div>
+                <div class="col-span-1 bg-gray-800 text-3xl text-white">X</div>
+                <div class="col-span-2 bg-red-500 text-3xl text-white rounded-r">{scoreboard.cpu}</div>
+              </div>
             </>
           )}
 

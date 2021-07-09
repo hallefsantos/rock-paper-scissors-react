@@ -6,16 +6,29 @@ This is a project example of the game "Rock Paper Scissors" built with React.js.
 - React
 - Tailwind CSS
 
-## Installation
+## Set up instructions
+1. Clone the repo.
+```sh
+$ git clone https://github.com/hallefsantos/rock-paper-scissors-react.git
+$ cd rock-paper-scissors-react
+```
 
-In the project directory, you can run:
+2. Install the dependencies
+```sh
+$ yarn
+```
 
-### `yarn dev`
+3. Runs the app in the development mode.
+```sh
+$ yarn dev
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Runs the app in the development mode.
+```sh
+$ yarn dev
+```
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Builds the app for production to the `build` folder.
+```sh
+$ yarn build
+```

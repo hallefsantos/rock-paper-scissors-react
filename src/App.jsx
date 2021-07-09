@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-const App = () => {
 
+const App = () => {
   const [userChoice, setUserChoice] = useState(null)
   const [computerChoice, setComputerChoice] = useState(null)
   const [result, setResult] = useState({})
@@ -37,7 +37,7 @@ const App = () => {
       }
     }
   }, [userChoice, computerChoice])
-  
+
   const choicesArr = [
     {
       label: 'pedra',
@@ -52,7 +52,6 @@ const App = () => {
       emoji: '✌'
     },
   ]
-
 
   const handleClick = (value) => {
     setUserChoice(value)
@@ -107,7 +106,7 @@ const App = () => {
 
       <div className="mt-10 pb-10 text-7xl md:text-9xl">
         {choicesArr.map(choice => (
-          <button key={choice} onClick={() => handleClick(choice)} disabled={isLoading}>
+          <button key={choice.label} onClick={() => handleClick(choice)} disabled={isLoading}>
             {choice.emoji}
           </button>
         ))}
